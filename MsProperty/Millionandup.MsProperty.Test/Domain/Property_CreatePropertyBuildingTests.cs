@@ -13,7 +13,7 @@ namespace Millionandup.MsProperty.Test.Domain
     /// DDD tests - Property
     /// </summary>
     [TestFixture]
-    public class PropertyTests : PropertyTestsBase
+    public partial class Property_CreatePropertyBuildingTests : PropertyTestsBase
     {
 
         #region CreatePropertyBuilding
@@ -21,7 +21,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:Success
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_SuccessResult()
+        public void SuccessResult()
         {
             //Arrange
             // > data
@@ -57,7 +57,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.NAME_ALREADY_EXIST"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_NameAlreadyExist()
+        public void ThrowsException_NameAlreadyExist()
         {
             //Arrange
             // > data
@@ -79,7 +79,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.NAME_INCORRECT_FORMAT"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_NameHasIncorrectFormat()
+        public void ThrowsException_NameHasIncorrectFormat()
         {
             //Arrange
             // > data
@@ -101,7 +101,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.NAME_IS_MANDATORY"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_NameIsMandatory()
+        public void ThrowsException_NameIsMandatory()
         {
             //Arrange
             // > data
@@ -122,7 +122,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.PRICE_GREATER_THAN_ZERO"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_PriceZero()
+        public void ThrowsException_PriceZero()
         {
             //Arrange
             // > data
@@ -144,7 +144,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.ADDRESS_IS_MANDATORY"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_AddressIsMandatory()
+        public void ThrowsException_AddressIsMandatory()
         {
             //Arrange
             // > data
@@ -167,7 +167,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.ADDRESS_INCORRECT_FORMAT"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_AddressHasIncorrectFormat()
+        public void ThrowsException_AddressHasIncorrectFormat()
         {
             //Arrange
             // > data
@@ -189,7 +189,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.CODE_IS_MANDATORY"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_CodeIsMandatory()
+        public void ThrowsException_CodeIsMandatory()
         {            //Arrange
             // > data
             string name = "Property number two";
@@ -210,7 +210,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.CODE_ALREADY_EXIST"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_CodeAlreadyExist()
+        public void ThrowsException_CodeAlreadyExist()
         {
             //Arrange
             // > data
@@ -232,7 +232,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.OWNERS_IS_MANDATORY"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_OwnerIsMandatory()
+        public void ThrowsException_OwnerIsMandatory()
         {
             //Arrange
             // > data
@@ -254,7 +254,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]:<see cref="PropertyValidator.MessagesError.OWNERS_NOT_EXIST"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_OwnerNotExist()
+        public void ThrowsException_OwnerNotExist()
         {
             //Arrange
             // > data
@@ -276,7 +276,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]: Name - <see cref="PropertyValidator.MessagesError.MAX_LENGHT_STRING"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_NameMaxLenght()
+        public void ThrowsException_NameMaxLenght()
         {
             //Arrange
             // > data
@@ -299,7 +299,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]: Address - <see cref="PropertyValidator.MessagesError.MAX_LENGHT_STRING"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_AddressMaxLenght()
+        public void ThrowsException_AddressMaxLenght()
         {
             //Arrange
             // > data
@@ -321,7 +321,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]: Price - <see cref="PropertyValidator.MessagesError.MAX_LENGHT_MONEY"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_PriceMaxValue()
+        public void ThrowsException_PriceMaxValue()
         {
             //Arrange
             // > data
@@ -343,7 +343,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: CreatePropertyBuilding - [Expected result]:ThrowsException - [Case]: CodeInternal - <see cref="PropertyValidator.MessagesError.MAX_LENGHT_STRING"/>
         /// </summary>
         [Test]
-        public void CreatePropertyBuilding_ThrowsException_CodeInternalMaxLenght()
+        public void ThrowsException_CodeInternalMaxLenght()
         {
             //Arrange
             // > data

@@ -18,11 +18,11 @@ namespace Millionandup.MsProperty.Api.Endpoints
         /// <param name="app">WebApplication</param>
         public static void AddPropertyEndpoints(this WebApplication app)
         {
-            app.MapPost($"{API_BASE_PATH}/CreatePropertyBuilding", PropertyHandlers.CreatePropertyBuilding);
-            app.MapPost($"{API_BASE_PATH}/AddImageFromProperty", PropertyHandlers.AddImageFromProperty);
-            app.MapPost($"{API_BASE_PATH}/ChangePrice", PropertyHandlers.ChangePrice);
-            app.MapPost($"{API_BASE_PATH}/UpdateProperty", PropertyHandlers.UpdateProperty);
-            app.MapPost($"{API_BASE_PATH}/ListPropertyWithFilters", PropertyHandlers.ListPropertyWithFilters);
+            app.MapPost($"{API_BASE_PATH}/CreatePropertyBuilding", PropertyHandlers.CreatePropertyBuilding).RequireAuthorization("CreatePropertyBuilding");
+            app.MapPost($"{API_BASE_PATH}/AddImageFromProperty", PropertyHandlers.AddImageFromProperty).RequireAuthorization("AddImageFromProperty");
+            app.MapPost($"{API_BASE_PATH}/ChangePrice", PropertyHandlers.ChangePrice).RequireAuthorization("ChangePrice");
+            app.MapPost($"{API_BASE_PATH}/UpdateProperty", PropertyHandlers.UpdateProperty).RequireAuthorization("UpdateProperty");
+            app.MapPost($"{API_BASE_PATH}/ListPropertyWithFilters", PropertyHandlers.ListPropertyWithFilters).RequireAuthorization("ListPropertyWithFilters");
         }
     }
 }

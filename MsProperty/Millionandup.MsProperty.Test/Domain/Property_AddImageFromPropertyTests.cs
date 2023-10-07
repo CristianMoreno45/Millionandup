@@ -11,7 +11,7 @@ namespace Millionandup.MsProperty.Test.Domain
     /// DDD tests - Property
     /// </summary>
     [TestFixture]
-    public class PropertyImageTests : PropertyTestsBase
+    public class Property_AddImageFromPropertyTests : PropertyTestsBase
     {
 
         
@@ -20,7 +20,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:Success - [Case]: ByPropertyId
         /// </summary>
         [Test]
-        public void AddImageFromProperty_SuccessResult_ByPropertyId()
+        public void SuccessResult_ByPropertyId()
         {
             //Arrange
             // > data
@@ -56,7 +56,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:Success - [Case]: ByCodeInternal
         /// </summary>
         [Test]
-        public void AddImageFromProperty_SuccessResult_ByCodeInternal()
+        public void SuccessResult_ByCodeInternal()
         {
             //Arrange
             // > data
@@ -94,7 +94,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:ThrowsException - [Case]: <see cref="PropertyImageValidator.MessagesError.FILE_IS_MANDATORY"/>
         /// </summary>
         [Test]
-        public void AddImageFromProperty_ThrowsException_FileIsMandatory()
+        public void ThrowsException_FileIsMandatory()
         {
             //Arrange
             // > data
@@ -114,7 +114,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:ThrowsException - [Case]: <see cref="PropertyImageValidator.MessagesError.FILEURL_HAS_INCORRECT_FORMAT"/>
         /// </summary>
         [Test]
-        public void AddImageFromProperty_ThrowsException_FileUrlHasIncorrectFormat()
+        public void ThrowsException_FileUrlHasIncorrectFormat()
         {
             //Arrange
             // > data
@@ -134,7 +134,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:ThrowsException - [Case]: <see cref="PropertyImageValidator.MessagesError.PROPERTIES_DONT_EXIST"/>
         /// </summary>
         [Test]
-        public void AddImageFromProperty_ThrowsException_PropertyDontExist()
+        public void ThrowsException_PropertyDontExist()
         {
             //Arrange
             // > data
@@ -154,7 +154,7 @@ namespace Millionandup.MsProperty.Test.Domain
         /// [Method]: AddImageFromProperty - [Expected result]:ThrowsException - [Case]: File - <see cref="PropertyImageValidator.MessagesError.MAX_LENGHT_STRING"/>
         /// </summary>
         [Test]
-        public void AddImageFromProperty_ThrowsException_FileMaxLenght()
+        public void ThrowsException_FileMaxLenght()
         {
             //Arrange
             // > data
