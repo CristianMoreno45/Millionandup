@@ -19,7 +19,11 @@ Es una aplicación de tipo web api la cual está montada en C# .Net 6 orientada 
 ```
 
 ## Generalidades
-El microservicio de Identity Server  no está dividido en capas (ya que su naturaleza no lo requiere) y cuenta con Controladores clásicos.
+
+**Estructura de Identity server 4**
+El microservicio de Identity Server no está dividido en capas (ya que su naturaleza no lo requiere) y cuenta con Controladores clásicos.
+
+**Minimal API**
 Por otro lado, las APIs del microservicio de propiedades están construidas en **Minimal API** una novedad de .Net 6 que permite crear APIs más rápido y con una lectura más estructurada. El Proyecto **Millionandup.MsProperty.Api** cuenta con dos carpetas **Endpoints** la cual es responsable de los edpoints y **EndpointsHandlers** la cual es responsable del comportamiento.
 
 **Ejemplo de un Endpoint**
@@ -64,6 +68,17 @@ public static partial class PropertyHandlers
 	}
 }
 ```
+**Repository pattern**
+
+También se aplicó el patrón de repositorio para desacoplar El modelo de datos del modelo de negocio, por lo que se cuenta con un dominio, su interfaz, la interfaz del repositorio y el repositorio propiamente dicho. 
+P. ej.: 
+* **Property (Dominio)**: Responsable de la lógica de negocio.
+* **IProperty (Interfaz del dominio)**: Contrato del dominio, tanto de propiedades como métodos.
+* **IPropertyRespositry (Interfaz del repositorio)**: Contrato de acceso a datos, esta no tiene propiedades, pero si los métodos básicos de CRUD.
+* **PropertyRespository (Repositorio)**: responsable del acceso a datos.
+
+**Diagrama MER**
+![Diagrama MER*](https://github.com/CristianMoreno45/Millionandup/blob/master/Doc/MillionandupRepository.drawio.png?raw=true "Diagrama MER*")
 
 ## Pruebas Unitarias
 El framework escogido fue NUnit nutrido con un modelo de datos a base de Mocks , cuenta con las tres etapas clave de pruebas unitarias Arreglar (Arrange), Actuar (Act) y Afirmar (Assert) y esta centrado en la capa de Negocio, validando así si el funcionamiento de las reglas del dominio. 
