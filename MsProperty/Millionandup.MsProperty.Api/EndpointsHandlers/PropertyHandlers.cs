@@ -15,7 +15,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
     {
 
         /// <summary>
-        /// Allows you to create a property
+        /// API that allows you to create a property
         /// </summary>
         /// <param name="propertyService">[Dependency injection] Service DDD of Property</param>
         /// <param name="logger">[Dependency injection] logger</param>
@@ -41,7 +41,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
         }
 
         /// <summary>
-        /// Allows you to add an image to a property
+        /// API that Allows you to add an image to a property
         /// </summary>
         /// <param name="propertyService">[Dependency injection] Service DDD of Property</param>
         /// <param name="logger">[Dependency injection] logger</param>
@@ -67,7 +67,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
         }
 
         /// <summary>
-        /// Allows you to change the price of a property.
+        /// API that allows you to change the price of a property.
         /// </summary>
         /// <param name="propertyService">[Dependency injection] Service DDD of Property</param>
         /// <param name="logger">[Dependency injection] logger</param>
@@ -93,7 +93,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
         }
 
         /// <summary>
-        /// Allows you to change the data of a property.
+        /// API that allows you to change the data of a property.
         /// </summary>
         /// <param name="propertyService">[Dependency injection] Service DDD of Property</param>
         /// <param name="logger">[Dependency injection] logger</param>
@@ -119,7 +119,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
         }
 
         /// <summary>
-        /// Allows extracting property information according to a filter
+        /// API that allows extracting property information according to a filter
         /// </summary>
         /// <param name="propertyService">[Dependency injection] Service DDD of Property</param>
         /// <param name="logger">[Dependency injection] logger</param>

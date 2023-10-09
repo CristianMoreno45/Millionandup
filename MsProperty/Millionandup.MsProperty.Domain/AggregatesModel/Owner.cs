@@ -101,12 +101,15 @@ namespace Millionandup.MsProperty.Domain.AggregatesModel
                 preliminarResult = preliminarResult.Where(p => p.OwnerId == filter.OwnerId);
 
             if (!string.IsNullOrEmpty(filter.Name))
-                preliminarResult = preliminarResult.Where(p => p.Name == filter.Name);
+                preliminarResult = preliminarResult.Where(p => p.Name.StartsWith(filter.Name) || p.Name.EndsWith(filter.Name) || p.Name.Contains(filter.Name));
 
-            if (filter.Birthday != new DateTime(1970, 0, 0, 0, 0, 0, DateTimeKind.Utc))
+            if (filter.Birthday != new DateTime(1, 1, 1, 0, 0, 0, DateTimeKind.Utc))
                 preliminarResult = preliminarResult.Where(p => p.Birthday == filter.Birthday);
 
-            return preliminarResult.ToList();
+            var result = preliminarResult.ToList();
+            if (result.Count > 0)
+                return result;
+            return new List<Owner>();
 
         }
 

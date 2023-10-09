@@ -91,7 +91,6 @@ using (var serviceScope = app.Services.GetService<IServiceScopeFactory>().Create
 
     var clients = Config.Clients((config["NetConnections:identityServer:host"])).Where(x => !context.Clients.Select(y => y.ClientId).Contains(x.ClientId));
     if (clients.Any())
-
     {
         foreach (var client in clients)
         {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Millionandup.MsProperty.Domain.AggregatesModel;
 using Millionandup.MsProperty.Infrastructure.Repository.EntityConfigurations;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace Millionandup.MsProperty.Infrastructure.Repository.Contexts
 {
@@ -45,5 +46,7 @@ namespace Millionandup.MsProperty.Infrastructure.Repository.Contexts
             modelBuilder.ApplyConfiguration(new OwnerEntityConfiguration());
 
         }
+
+
     }
 }

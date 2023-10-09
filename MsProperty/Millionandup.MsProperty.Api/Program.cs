@@ -5,6 +5,11 @@ using Millionandup.MsProperty.Infrastructure.Repository.Contexts;
 using Microsoft.Extensions.Logging.Console;
 using Millionandup.Framework.Extensions.Program;
 using Millionandup.MsProperty.Api;
+using static System.Net.Mime.MediaTypeNames;
+using Millionandup.Framework.DTO;
+using System.Net;
+using Millionandup.Framework.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 #endregion
 
 var builder = WebApplication.CreateBuilder(args);
@@ -48,6 +53,30 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Start migrations
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<PropertyContext>();
+    db.Database.Migrate();
+}
+
+// Add Expetion handler in preprocesor request
+app.UseExceptionHandler(exceptionHandlerApp =>
+{
+    exceptionHandlerApp.Run(async context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.Response.ContentType = Text.Plain;
+
+        await context.Response.WriteAsJsonAsync(
+            Results.Json(
+                false.AsResponseDTO(HttpStatusCode.InternalServerError,
+                MessagesError.GENERAL_ERROR),
+                statusCode: (int)HttpStatusCode.InternalServerError));
+    });
+});
+
 
 app.UseHttpsRedirection().UseCors().UseAuthentication().UseAuthorization(); app.AddPropertyEndpoints();
 app.AddOwnerEndpoints();

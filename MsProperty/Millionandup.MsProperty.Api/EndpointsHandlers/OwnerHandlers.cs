@@ -14,7 +14,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
     public static partial class OwnerHandlers
     {
         /// <summary>
-        /// Method that allows adding an entity
+        /// API that allows adding an property owner
         /// </summary>
         /// <param name="ownerService">[Dependency injection] Service DDD of Owner</param>
         /// <param name="logger">[Dependency injection] logger</param>
@@ -40,7 +40,7 @@ namespace Millionandup.MsProperty.Api.EndpointsHandlers
         }
 
         /// <summary>
-        /// Method that allows geting an entity
+        /// API that allows getting an list of property owner from filters
         /// </summary>
         /// <param name="ownerService">[Dependency injection] Service DDD of Owner</param>
         /// <param name="logger">[Dependency injection] logger</param>

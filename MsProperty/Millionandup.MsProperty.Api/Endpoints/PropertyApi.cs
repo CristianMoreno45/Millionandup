@@ -20,8 +20,8 @@ namespace Millionandup.MsProperty.Api.Endpoints
         {
             app.MapPost($"{API_BASE_PATH}/CreatePropertyBuilding", PropertyHandlers.CreatePropertyBuilding).RequireAuthorization("CreatePropertyBuilding");
             app.MapPost($"{API_BASE_PATH}/AddImageFromProperty", PropertyHandlers.AddImageFromProperty).RequireAuthorization("AddImageFromProperty");
-            app.MapPost($"{API_BASE_PATH}/ChangePrice", PropertyHandlers.ChangePrice).RequireAuthorization("ChangePrice");
-            app.MapPost($"{API_BASE_PATH}/UpdateProperty", PropertyHandlers.UpdateProperty).RequireAuthorization("UpdateProperty");
+            app.MapPut($"{API_BASE_PATH}/ChangePrice", PropertyHandlers.ChangePrice).RequireAuthorization("ChangePrice");
+            app.MapPut($"{API_BASE_PATH}/UpdateProperty", PropertyHandlers.UpdateProperty).RequireAuthorization("UpdateProperty");
             app.MapPost($"{API_BASE_PATH}/ListPropertyWithFilters", PropertyHandlers.ListPropertyWithFilters).RequireAuthorization("ListPropertyWithFilters");
         }
     }
