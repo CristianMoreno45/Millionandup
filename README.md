@@ -132,7 +132,29 @@ RuleFor(p => p.Name.Length).LessThan(80).WithMessage(string.Format(MessagesError
 RuleFor(p => p.Price).GreaterThan(0).WithMessage(MessagesError.PRICE_GREATER_THAN_ZERO);
 ```	
 
-
 ## Autenticación y autorización 
 Para ello se usa **Millionandup.MsIdentityServer** el cual es un servicio que permite la autenticación y autorización, ideal para la gestión de usuarios, claves, roles, scopes entre otros [Sitio oficial]( https://identityserver4.readthedocs.io/en/latest/).
 
+
+## Get starting
+
+Antes de empezar le sugiero revisar la documentación de los contratos de las APIs en el siguiente link [Contratos Postman GUID](https://documenter.getpostman.com/view/3053577/2s9YJgULoJ#2714ae7f-c3f7-41e6-9871-cc8a26b8e331).
+
+**Configuración**
+La aplicación ya cuenta con un esquema de migraciones que ejecutará la creación de base de datos y tablas requeridas para su correcto funcionamiento de manera automática. Para que esto pase, deberá descargar repositorio y configurar la cadena de conexión a su recurso de base de datos el cual deberá ser SQL server, la cadena de conexión se debe cambiar en 
+* Archivo de configuración de **appsettings.json** del proyecto **Millionandup.MsIdentityServer**, más específicamente en la clave de configuración **DataBaseSettings:DataBaseSettings**. La cadena de configuración actual asume que la autenticación se hace por medio de usuario Windows por lo que si su conexión requiere usuario y contraseña deberá adjuntar según corresponda.
+* Archivo de configuración de **appsettings.json** del proyecto **Millionandup.MsProperty.Api**, más específicamente en la clave de configuración **DataBaseSettings:DataBaseSettings**. La cadena de configuración actual asume que la autenticación se hace por medio de usuario Windows por lo que si su conexión requiere usuario y contraseña deberá adjuntar según corresponda.
+
+* Archivo de Factorías de contexto para migración **Repository\Contexts\PropertyContextFactory.cs** del proyecto **Millionandup.MsProperty.Infrastructure**, más específicamente en el método**CreateDbContext**. La cadena de configuración actual asume que la autenticación se hace por medio de usuario Windows por lo que si su conexión requiere usuario y contraseña deberá adjuntar según corresponda.
+
+**Ejecución**
+* Corra la solución con múltiples proyectos y seleccione el proyectos de **Millionandup.MsIdentityServer** y **Millionandup.MsProperty.Api**.
+* Solicite un token, para ello deberá hacer uso del api (IdentityServer - Auth token)[ https://documenter.getpostman.com/view/3053577/2s9YJgULoJ#4901700d-5526-4397-affd-ee7e0f868cdc]. El nombre de usuario es **2b120e8f-817a-484a-9095-0065addbdfff**; la contraseña es **1873aa7d-cdd0-4ce9-a94b-e6799b1e48f7** y el scope **Owner.Add** (aquí puede usar uno o varios separados por espacio, aquí la lista: Owner.Add, Owner.Get, Property.CreatePropertyBuilding, Property.AddImageFromProperty, Property.ChangePrice, Property.UpdateProperty, Property.ListPropertyWithFilters).
+* Guarde el token generado el cual estará disponible en el nodo **access_token** del cuerpo de la respuesta del paso anterior (haga uso de la variable de postman **{{token}}** para guardarlo).
+* Cree un dueño de propiedad, para ello deberá hacer uso del api (Owner Add)[https://documenter.getpostman.com/view/3053577/2s9YJgULoJ#82ae7ca5-1a82-4311-a7a3-8ce84efc4901].
+* Guarde el identificador de Dueño de propíedad generado el cual estará disponible en el nodo **data.OwnerId** del cuerpo de la respuesta del paso anterior (haga uso de la variable de postman **{{OwnerId}}** para guardarlo).
+* Cree una propiedad, para ello deberá hacer uso del api (
+Property - CreatePropertyBuilding - V1)[ https://documenter.getpostman.com/view/3053577/2s9YJgULoJ#2714ae7f-c3f7-41e6-9871-cc8a26b8e331].
+De aquí en adelante ya puede identificar el rumbo de su exploración por su cuenta, un saludo.
+
+Cristian C. Moreno. Bayona.
